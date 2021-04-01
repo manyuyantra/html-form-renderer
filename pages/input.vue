@@ -4,7 +4,7 @@
     <p>{{ post.description }}</p> -->
     <!-- <h1>Input Message Page</h1>
     <p>Parent Element{{ form.items }} </p> -->
-    <InputMessage v-bind:form="form"/>
+    <InputMessage v-bind:form="payload"/>]
   </div>
 </template>
 
@@ -12,7 +12,7 @@
 export default {
   data () {
     return {
-      form: {
+      payload: {
         items: [{ message: 'Foo' }, { message: 'Bar' }]
       }
     }
