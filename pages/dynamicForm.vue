@@ -2,7 +2,7 @@
   <div id="123">
     <div v-for="(item,index) in objKeys" :key="index">
       <ElInputText v-if="isInputText(item)" v-model="customer[item]" :item="item" :obj="customer"/>
-      <ElRadioBtn v-if="!isInputText(item)" v-model="customer[item]" :items="customer[item]" :name="item" />
+      <ElRadioBtn v-if="isInputRadio(item)" :items="customer[item]" :name="item" v-model="customer.gender" />
     </div>
     <input type="text" v-model="customer.name">{{ customer }}
   </div>
@@ -24,7 +24,8 @@ export default {
       this.mobNo = ''
       this.panId = ''
       this.address = ''
-      this.gender = ['male', 'female', 'dfd']
+      this.gender = 'Male'
+      this.genderOptions = ['Male', 'Female', 'dfd']
     }
     this.customer = new Customer()
     this.objKeys = Object.keys(this.customer)
@@ -37,6 +38,10 @@ export default {
     isInputText: (item) => {
       const inputTextKeys = ['name', 'email', 'mobNo', 'panId', 'address']
       return inputTextKeys.includes(item)
+    },
+    isInputRadio: (item) => {
+      const inputRadioKeys = ['genderOptions']
+      return inputRadioKeys.includes(item)
     }
   }
 }

@@ -22,6 +22,6 @@ export default {
       this.$emit('input', e.target.value)
     }
   },
-  props: ['item', 'obj', 'modelValue']
+  props: ['item', 'obj']
 }
 </script>
