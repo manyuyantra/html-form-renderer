@@ -4,7 +4,7 @@
       <ElInputText v-if="isInputText(item)" v-model="customer[item]" :item="item" :obj="customer"/>
       <ElRadioBtn v-if="isInputRadio(item)" :items="customer[item]" :name="item" v-model="customer.gender" />
     </div>
-    <input type="text" v-model="customer.name">{{ customer }}
+    <input type="text" v-model="customer.name">{{ newCustomer }}
   </div>
 </template>
 <script>
