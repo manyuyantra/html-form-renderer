@@ -1,17 +1,15 @@
 <template>
   <div>
-    <div v-for="(item,index) in items" :key="index">
-    <label :for="item">
+    <label v-for="(item,index) in items" :key="index" :for="item">
       <input
-        type="radio"
-        :id="item"
+        type="checkbox"
+        :id="toLowerCase(item)"
         :value="item"
-        :name="name"
+        v-bind="attrs"
         :checked="index === 0 ? true : false"
         @input="handleInput">
       {{ item }}
     </label>
-    </div>
   </div>
 </template>
 
@@ -20,8 +18,11 @@ export default {
   methods: {
     handleInput (e) {
       this.$emit('input', e.target.value)
+    },
+    toLowerCase (str) {
+      return str.toLowerCase()
     }
   },
-  props: ['items', 'name']
+  props: ['items', 'attrs']
 }
 </script>

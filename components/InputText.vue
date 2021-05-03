@@ -1,7 +1,6 @@
 <template>
     <input
       type="text"
-      class="form-control"
       @input='handleInput'
     />
 </template>

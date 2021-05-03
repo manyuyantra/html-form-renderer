@@ -1,12 +1,12 @@
 <template>
   <div id="123">
     <div v-for="(item,key,index) in custFieldInfo" :key="index">
-        {{ customer[key] +''+key}}
+        {{ customer[item.keyName] +''+key}}
         <div v-if="item.type === 'String'">
           <label :for="item.id">{{ placeholder = item.placeholder }} </label>
-          <component :is="item.component" :id='item.id' v-model="customer[key]" :placeholder="placeholder"/>
+          <component :is="item.component" :id='item.id' v-model="customer[item.keyName]" :name="key" :value="item.value"/>
         </div>
-        <div v-if="item.type === 'Array'">
+        <!-- <div v-if="item.type === 'Array'">
            <div v-for="(val,key1,index1) in customer[item.arrayValues]" :key="index1">
                {{ val }}
           <component
@@ -16,7 +16,7 @@
           :checked="key1  === 0 ? true : false"
           name="val" />
           </div>
-        </div>
+        </div> -->
     </div>
     {{ customer }}
   </div>
@@ -37,7 +37,7 @@ export default {
       this.mobNo = ''
       this.panId = ''
       this.address = ''
-      this.gender = ''
+      this.gender = 'Male'
       this.genderOptions = ['Male', 'Female', 'dfd']
     }
     const custFieldInfo = {}
@@ -47,6 +47,7 @@ export default {
       component: 'InputText',
       type: 'String',
       placeholder: 'Enter Your Name',
+      keyName: 'name',
       value: 'sds'
     }
     custFieldInfo.email = {
@@ -54,13 +55,22 @@ export default {
       component: 'InputText',
       type: 'String',
       placeholder: 'Enter Your Email',
+      keyName: 'email',
       value: 'sdsd'
     }
-    custFieldInfo.gender = {
+    custFieldInfo.gender1 = {
       id: 'customer-gender',
       component: 'RadioBtn',
-      type: 'Array',
-      arrayValues: 'genderOptions'
+      type: 'String',
+      value: 'Male',
+      keyName: 'gender'
+    }
+    custFieldInfo.gender2 = {
+      id: 'customer-gender',
+      component: 'RadioBtn',
+      type: 'String',
+      value: 'Female',
+      keyName: 'gender'
     }
 
     this.customer = new Customer()
