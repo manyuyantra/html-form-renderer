@@ -74,7 +74,7 @@ export default {
       attributes: {
         id: 'customer-panno',
         name: 'panNo',
-        placeholder: 'Enter Your PAN NO'
+        placeholder: 'Enter Your PAN Number'
       }
     }
     custFieldInfo.mobNo = {
