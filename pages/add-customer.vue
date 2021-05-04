@@ -24,6 +24,7 @@ export default {
       this.email = ''
       this.dob = ''
       this.gender = ''
+      this.work = ''
       this.mobNo = ''
       this.panNo = ''
       this.address1 = ''
@@ -61,11 +62,19 @@ export default {
       }
     }
     custFieldInfo.gender = {
-      component: 'RadioBtn',
+      component: 'ElRadioBtn',
       type: 'Array',
       arrayValues: ['Male', 'Female', 'DSD'],
       attributes: {
         name: 'gender'
+      }
+    }
+    custFieldInfo.work = {
+      component: 'Dropdown',
+      type: 'Arrays',
+      arrayValues: ['SelfEmployed', 'GovtJob', 'PrivateJob'],
+      attributes: {
+        name: 'work'
       }
     }
     custFieldInfo.panNo = {

@@ -5,7 +5,8 @@
           <label :for="item.id"> </label>
           <component :is="item.component" v-model="formModelObj[key]" v-bind="item.attributes"/>
         </div>
-        <ElRadioBtn v-if="item.type === 'Array'" :items="item.arrayValues" :attrs="item.attributes" v-model="formModelObj[key]" />
+        <ElRadioBtn v-if="item.component === 'ElRadioBtn'" :items="item.arrayValues" :attrs="item.attributes" v-model="formModelObj[key]" />
+        <Dropdown v-if="item.component === 'Dropdown'" :items="item.arrayValues" :attrs="item.attributes" v-model="formModelObj[key]" />
     </div>
     <input type="button" value="Click me" @click="emitCustomer">
   </div>
