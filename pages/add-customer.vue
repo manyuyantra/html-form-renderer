@@ -20,7 +20,7 @@ export default {
   created () {
     function Customer () {
       this.id = ''
-      this.name = '     '
+      this.name = ''
       this.email = ''
       this.dob = ''
       this.gender = ''
@@ -31,6 +31,7 @@ export default {
       this.address2 = ''
       this.address3 = ''
       this.pincode = ''
+      this.profession = []
     }
     const custFieldInfo = {}
 
@@ -70,11 +71,12 @@ export default {
       }
     }
     custFieldInfo.work = {
-      component: 'Dropdown',
-      type: 'Arrays',
+      component: 'ElDropdown',
+      type: 'Array',
       arrayValues: ['SelfEmployed', 'GovtJob', 'PrivateJob'],
       attributes: {
-        name: 'work'
+        name: 'work',
+        labelValue: 'Profession'
       }
     }
     custFieldInfo.panNo = {
@@ -131,7 +133,16 @@ export default {
         placeholder: 'Enter Pincode'
       }
     }
-    this.customer = new Customer()
+    custFieldInfo.profession = {
+      component: 'ElCheckBox',
+      type: 'Array',
+      arrayValues: ['SelfEmployed', 'GovtJob', 'PrivateJob'],
+      attributes: {
+        id: 'customer-profession',
+        name: 'profession'
+      }
+    }
+    this.objInfo = new Customer()
     this.custFieldInfo = custFieldInfo
   }
 }

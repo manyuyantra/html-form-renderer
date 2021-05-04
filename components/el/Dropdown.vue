@@ -1,12 +1,13 @@
 <template>
     <div>
-        <label for="Work">
+        <label :for="attrs.name">
+            {{ attrs.labelValue }}
+         </label>
         <select
         v-bind="attrs"
         @input="handleInput">
         <option v-for="(item, index) in items"  :key="index" :for="item">{{ item }}</option>
         </select>
-        </label>
     </div>
 </template>
 

@@ -2,12 +2,12 @@
   <div>
     <label v-for="(item,index) in items" :key="index" :for="item">
       <input
-        type="radio"
+        type="checkbox"
         :id="toLowerCase(item)"
         :value="item"
         v-bind="attrs"
-        :checked="index === 0 ? true : false"
-        @input="handleInput">
+        v-model="selectedValues"
+        @change="handleInput">
       {{ item }}
     </label>
   </div>
@@ -15,9 +15,16 @@
 
 <script>
 export default {
+  data () {
+    return {
+      selectedValues: []
+    }
+  },
   methods: {
     handleInput (e) {
-      this.$emit('input', e.target.value)
+      const obj = {}
+      obj[this.attrs.name] = this.selectedValues
+      this.$emit('change', obj)
     },
     toLowerCase (str) {
       return str.toLowerCase()

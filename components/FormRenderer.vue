@@ -6,9 +6,11 @@
           <component :is="item.component" v-model="formModelObj[key]" v-bind="item.attributes"/>
         </div>
         <ElRadioBtn v-if="item.component === 'ElRadioBtn'" :items="item.arrayValues" :attrs="item.attributes" v-model="formModelObj[key]" />
-        <Dropdown v-if="item.component === 'Dropdown'" :items="item.arrayValues" :attrs="item.attributes" v-model="formModelObj[key]" />
+        <ElDropdown v-if="item.component === 'ElDropdown'" :items="item.arrayValues" :attrs="item.attributes" v-model="formModelObj[key]" />
+        <ElCheckBox v-if="item.component === 'ElCheckBox'" :items="item.arrayValues" :attrs="item.attributes" @change="atChanged" />
     </div>
     <input type="button" value="Click me" @click="emitCustomer">
+   formModelObj {{  formModelObj}}
   </div>
 </template>
 
@@ -22,6 +24,9 @@ export default {
   methods: {
     emitCustomer (e) {
       this.$emit('click', this.formModelObj)
+    },
+    atChanged (updatedObj) {
+      this.formModelObj = { ...this.formModelObj, ...updatedObj }
     }
   },
   props: ['custFieldInfo']
