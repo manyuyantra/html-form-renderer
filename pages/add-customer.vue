@@ -32,6 +32,7 @@ export default {
       this.address3 = ''
       this.pincode = ''
       this.profession = []
+      this.jobDescription = ''
     }
     const custFieldInfo = {}
 
@@ -140,6 +141,16 @@ export default {
       attributes: {
         id: 'customer-profession',
         name: 'profession'
+      }
+    }
+    custFieldInfo.jobDescription = {
+      component: 'ElInputTextArea',
+      type: 'text',
+      attributes: {
+        id: 'customer_job',
+        name: 'jobdescription',
+        labelValue: 'Enter Job Description',
+        placeholder: 'Enter Your Job Details'
       }
     }
     this.objInfo = new Customer()
