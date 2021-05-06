@@ -1,5 +1,6 @@
 export const state = () => ({
-  list: []
+  list: [],
+  flavor: 'HelloWorld'
 })
 
 export const mutations = {
@@ -14,5 +15,11 @@ export const mutations = {
   },
   toggle (state, todo) {
     todo.done = !todo.done
+  }
+}
+
+export const getters = {
+  getFlavor: (state) => {
+    return state.flavor
   }
 }

@@ -1,22 +1,26 @@
 <template>
   <ul>
-    <li v-for="(todo,index) in todos" :key="index">
+    <li v-for="(todo,index) in todosList" :key="index">
       <input :checked="todo.done" @change="toggle(todo)" type="checkbox">
       <span :class="{ done: todo.done }">{{ todo.text }}</span>
     </li>
     <li><input @keyup.enter="addTodo" placeholder="What needs to be done?"></li>
     <button @click="remove">Remove Selected Items</button>
+       <p>You chose {{ getFlavor}}</p>
   </ul>
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import { mapMutations, mapGetters } from 'vuex'
 
 export default {
   computed: {
-    todos () {
+    todosList () {
       return this.$store.state.todos.list
-    }
+    },
+    ...mapGetters({
+      getFlavor: 'todos/getFlavor'
+    })
   },
   methods: {
     addTodo (e) {
@@ -24,7 +28,7 @@ export default {
       e.target.value = ''
     },
     remove (e) {
-      const getSelectedTodos = this.todos.filter(todo => todo.done === true)
+      const getSelectedTodos = this.todosList.filter(todo => todo.done === true)
       console.log(getSelectedTodos)
       getSelectedTodos.forEach((element) => {
         this.$store.commit('todos/remove', element)
