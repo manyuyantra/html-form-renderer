@@ -1,12 +1,17 @@
 <template>
     <div>
-        <FormRenderer :custFieldInfo="custFieldInfo" @click="atClicked"/>
-        {{ customer }}
+        <FormRenderer :custFieldInfo="custFieldInfo" />
+        {{ this.customers }}
     </div>
 </template>
 
 <script>
 export default {
+  computed: {
+    customers () {
+      return this.$store.state.customer.list
+    }
+  },
   data () {
     return {
       customer: {}
