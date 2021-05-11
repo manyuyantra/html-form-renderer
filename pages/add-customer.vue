@@ -2,6 +2,7 @@
     <div>
         <FormRenderer :custFieldInfo="custFieldInfo" />
         {{ this.customers }}
+            <CentralStore />
     </div>
 </template>
 

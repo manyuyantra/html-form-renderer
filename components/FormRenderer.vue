@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <form>
     <div v-for="(item,key,index) in custFieldInfo" :key="index">
-        <div v-if="item.type === 'String'">
+        <div v-if="item.component === 'InputText'">
           <label :for="item.id"> </label>
           <component :is="item.component" v-model="formModelObj[key]" v-bind="item.attributes"/>
         </div>
@@ -12,7 +12,7 @@
     </div>
     <input type="button" value="Save Customer" @click="saveCustomer">
    formModelObj {{  formModelObj}}
-  </div>
+  </form>
 </template>
 
 <script>
