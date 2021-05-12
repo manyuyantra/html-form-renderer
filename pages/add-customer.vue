@@ -1,8 +1,7 @@
 <template>
     <div>
+        <CentralStore />
         <FormRenderer :custFieldInfo="custFieldInfo" />
-        {{ this.customers }}
-            <CentralStore />
     </div>
 </template>
 
@@ -43,7 +42,7 @@ export default {
     const custFieldInfo = {}
 
     custFieldInfo.name = {
-      component: 'InputText',
+      component: 'ElInputText',
       type: 'String',
       attributes: {
         id: 'customer-name',
@@ -52,16 +51,17 @@ export default {
       }
     }
     custFieldInfo.email = {
-      component: 'InputText',
+      component: 'ElInputText',
       type: 'String',
       attributes: {
         id: 'customer-email',
         name: 'email',
-        placeholder: 'Enter Your Email'
+        placeholder: 'Enter Your Email',
+        pattern: '[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$'
       }
     }
     custFieldInfo.dob = {
-      component: 'InputText',
+      component: 'ElInputText',
       type: 'String',
       attributes: {
         id: 'customer-email',
@@ -87,7 +87,7 @@ export default {
       }
     }
     custFieldInfo.panNo = {
-      component: 'InputText',
+      component: 'ElInputText',
       type: 'String',
       attributes: {
         id: 'customer-panno',
@@ -96,7 +96,7 @@ export default {
       }
     }
     custFieldInfo.mobNo = {
-      component: 'InputText',
+      component: 'ElInputText',
       type: 'String',
       attributes: {
         id: 'customer-mobNo',
@@ -105,7 +105,7 @@ export default {
       }
     }
     custFieldInfo.address1 = {
-      component: 'InputText',
+      component: 'ElInputText',
       type: 'String',
       attributes: {
         id: 'customer-address1',
@@ -114,7 +114,7 @@ export default {
       }
     }
     custFieldInfo.address2 = {
-      component: 'InputText',
+      component: 'ElInputText',
       type: 'String',
       attributes: {
         id: 'customer-address2',
@@ -123,7 +123,7 @@ export default {
       }
     }
     custFieldInfo.address3 = {
-      component: 'InputText',
+      component: 'ElInputText',
       type: 'String',
       attributes: {
         id: 'customer-address3',
@@ -132,7 +132,7 @@ export default {
       }
     }
     custFieldInfo.pincode = {
-      component: 'InputText',
+      component: 'ElInputText',
       type: 'String',
       attributes: {
         id: 'customer-pincode',
@@ -164,8 +164,7 @@ export default {
       attributes: {
         id: 'saveForm',
         value: 'save',
-        type: 'button',
-        'v-on:click': 'saveCustomer'
+        type: 'submit'
       }
     }
     custFieldInfo.cancelButton = {

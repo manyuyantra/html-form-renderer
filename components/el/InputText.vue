@@ -1,11 +1,11 @@
 <template>
   <div>
-    <label :for="'ex-' + item">{{ item }}</label>
+    <label :for="attrs.name">{{ attrs.name }}</label>
     <input
-      :id="'ex-' + item"
+      v-bind="attrs"
       type="text"
       class="form-control"
-      @input='handleInput'
+      @input="handleInput"
     />
   </div>
 </template>
@@ -22,6 +22,6 @@ export default {
       this.$emit('input', e.target.value)
     }
   },
-  props: ['item', 'obj']
+  props: ['attrs']
 }
 </script>

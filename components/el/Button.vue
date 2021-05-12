@@ -1,16 +1,15 @@
 <template>
-    <button
+    <input
      v-bind="attrs"
-     @click='handleInput'
-    >{{attrs.value}}
-    </button>
+     @click="handleSubmit"
+    >
 </template>
 
 <script>
 export default {
   methods: {
-    handleInput (e) {
-      this.$emit('click')
+    handleSubmit (e) {
+      this.$emit('click', e)
     }
   },
   props: ['attrs']
