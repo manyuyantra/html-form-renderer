@@ -9,8 +9,9 @@
         <ElDropdown v-if="item.component === 'ElDropdown'" :items="item.arrayValues" :attrs="item.attributes" v-model="formModelObj[key]" />
         <ElCheckBox v-if="item.component === 'ElCheckBox'" :items="item.arrayValues" :attrs="item.attributes" @change="atChanged" />
         <ElInputTextArea v-if="item.component === 'ElInputTextArea'" :attrs="item.attributes" v-model="formModelObj[key]" />
+        <ElButton v-if="item.component === 'ElButton'" :attrs="item.attributes" :@click="item.attributes.type === 'button' ? saveCustomer : null" />
     </div>
-    <input type="button" value="Save Customer" @click="saveCustomer">
+    <button type="button" @click="saveCustomer">Save Customer</button>
    formModelObj {{  formModelObj}}
   </form>
 </template>

@@ -159,6 +159,23 @@ export default {
         placeholder: 'Enter Your Job Details'
       }
     }
+    custFieldInfo.saveButton = {
+      component: 'ElButton',
+      attributes: {
+        id: 'saveForm',
+        value: 'save',
+        type: 'button',
+        'v-on:click': 'saveCustomer'
+      }
+    }
+    custFieldInfo.cancelButton = {
+      component: 'ElButton',
+      attributes: {
+        id: 'cancelForm',
+        value: 'cancel',
+        type: 'reset'
+      }
+    }
     this.objInfo = new Customer()
     this.custFieldInfo = custFieldInfo
   }
