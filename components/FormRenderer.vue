@@ -1,7 +1,8 @@
 <template>
 <div class="parent">
+  <FormTags :storeName="storeName" />
   <form id="dynamic-form">
-    <div v-for="(item,key,index) in custFieldInfo" :key="index">
+    <div v-for="(item,key,index) in formSpec" :key="index">
         <ElInputText v-if="item.component === 'ElInputText'" :attrs="item.attributes" v-model="formModelObj[key]" />
         <ElRadioBtn v-if="item.component === 'ElRadioBtn'" :items="item.arrayValues" :attrs="item.attributes" v-model="formModelObj[key]" />
         <ElDropdown v-if="item.component === 'ElDropdown'" :items="item.arrayValues" :attrs="item.attributes" v-model="formModelObj[key]" />
@@ -24,7 +25,7 @@ export default {
     saveCustomer (e) {
       // this.$emit('click', this.formModelObj)
       const storeObj = { ...this.formModelObj }
-      this.$store.commit('customer/add', storeObj)
+      this.$store.commit(this.storeName + '/add', storeObj)
     },
     atChanged (updatedObj) {
       this.formModelObj = { ...this.formModelObj, ...updatedObj }
@@ -40,7 +41,7 @@ export default {
       }
     }
   },
-  props: ['custFieldInfo']
+  props: ['formSpec', 'storeName']
 }
 </script>
 

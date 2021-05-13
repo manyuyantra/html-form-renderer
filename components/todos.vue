@@ -31,7 +31,7 @@ export default {
       const getSelectedTodos = this.todosList.filter(todo => todo.done === true)
       console.log(getSelectedTodos)
       getSelectedTodos.forEach((element) => {
-        this.$store.commit('todos/add', element)
+        this.$store.commit('todos/remove', element)
       })
     },
     ...mapMutations({

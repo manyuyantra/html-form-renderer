@@ -1,7 +1,7 @@
 <template>
     <div>
-        <CentralStore />
-        <FormRenderer :custFieldInfo="custFieldInfo" />
+        Hello Store {{ customers }}
+        <FormRenderer :formSpec="custFieldInfo" :storeName="storeName" />
     </div>
 </template>
 
@@ -14,7 +14,8 @@ export default {
   },
   data () {
     return {
-      customer: {}
+      customer: {},
+      storeName: 'customer'
     }
   },
   methods: {
