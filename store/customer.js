@@ -3,7 +3,7 @@ export const state = () => ({
 })
 
 export const mutations = {
-  add (state, customer) {
+  add (state, ç) {
     state.list.push(customer)
   },
   remove (state, { customer }) {
