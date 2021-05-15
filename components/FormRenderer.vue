@@ -1,6 +1,7 @@
 <template>
 <div class="parent">
-  <FormTags :storeName="storeName" />
+    formModelObj {{ formModelObj }}
+  <FormTags :storeName="storeName" @click="showCustomer"/>
   <form id="dynamic-form">
     <div v-for="(item,key,index) in formSpec" :key="index">
         <ElInputText v-if="item.component === 'ElInputText'" :attrs="item.attributes" v-model="formModelObj[key]" />
@@ -39,6 +40,10 @@ export default {
         console.log(e.target.type)
         document.getElementById('dynamic-form').reset()
       }
+    },
+    showCustomer (customer) {
+      console.log(customer)
+      this.formModelObj.name = 'sff'
     }
   },
   props: ['formSpec', 'storeName']
