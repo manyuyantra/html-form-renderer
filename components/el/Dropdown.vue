@@ -6,7 +6,7 @@
         <select
         v-bind="attrs"
         @input="handleInput">
-        <option v-for="(item, index) in items"  :key="index" :for="item">{{ item }}</option>
+        <option v-for="(item, index) in items" :selected="item === value"   :key="index" :for="item">{{ item }}</option>
         </select>
     </div>
 </template>
@@ -18,6 +18,6 @@ export default {
       this.$emit('input', e.target.value)
     }
   },
-  props: ['items', 'attrs']
+  props: ['items', 'attrs', 'value']
 }
 </script>

@@ -6,6 +6,7 @@
       type="text"
       class="form-control"
       @input="handleInput"
+      :value="value"
     />
   </div>
 </template>
@@ -22,6 +23,6 @@ export default {
       this.$emit('input', e.target.value)
     }
   },
-  props: ['attrs']
+  props: ['attrs', 'value']
 }
 </script>

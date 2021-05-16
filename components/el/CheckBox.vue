@@ -7,6 +7,7 @@
         :value="item"
         v-bind="attrs"
         v-model="selectedValues"
+        :checked="checkValue(item)"
         @change="handleInput">
       {{ item }}
     </label>
@@ -28,8 +29,20 @@ export default {
     },
     toLowerCase (str) {
       return str.toLowerCase()
+    },
+    checkValue (item) {
+      if (this.value) {
+        return this.value.filter(itemVal => itemVal === item)
+      }
     }
   },
-  props: ['items', 'attrs']
+  watch: {
+    value () {
+      if (this.value.length) {
+        this.selectedValues = this.value
+      }
+    }
+  },
+  props: ['items', 'attrs', 'value']
 }
 </script>

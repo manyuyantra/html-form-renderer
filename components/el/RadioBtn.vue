@@ -6,7 +6,7 @@
         :id="toLowerCase(item)"
         :value="item"
         v-bind="attrs"
-        :checked="index === 0 ? true : false"
+        :checked="(index === 0 || item === value) ? true : false"
         @input="handleInput">
       {{ item }}
     </label>
@@ -23,6 +23,6 @@ export default {
       return str.toLowerCase()
     }
   },
-  props: ['items', 'attrs']
+  props: ['items', 'attrs', 'value']
 }
 </script>

@@ -4,11 +4,12 @@
   <FormTags :storeName="storeName" @click="showCustomer"/>
   <form id="dynamic-form">
     <div v-for="(item,key,index) in formSpec" :key="index">
-        <ElInputText v-if="item.component === 'ElInputText'" :attrs="item.attributes" v-model="formModelObj[key]" />
-        <ElRadioBtn v-if="item.component === 'ElRadioBtn'" :items="item.arrayValues" :attrs="item.attributes" v-model="formModelObj[key]" />
-        <ElDropdown v-if="item.component === 'ElDropdown'" :items="item.arrayValues" :attrs="item.attributes" v-model="formModelObj[key]" />
-        <ElCheckBox v-if="item.component === 'ElCheckBox'" :items="item.arrayValues" :attrs="item.attributes" @change="atChanged" />
-        <ElInputTextArea v-if="item.component === 'ElInputTextArea'" :attrs="item.attributes" v-model="formModelObj[key]" />
+      {{formModelObj[key]}}
+        <ElInputText v-if="item.component === 'ElInputText'" :attrs="item.attributes" v-model="formModelObj[key]" :value="formModelObj[key]" />
+        <ElRadioBtn v-if="item.component === 'ElRadioBtn'" :items="item.arrayValues" :attrs="item.attributes" v-model="formModelObj[key]" :value="formModelObj[key]" />
+        <ElDropdown v-if="item.component === 'ElDropdown'" :items="item.arrayValues" :attrs="item.attributes" v-model="formModelObj[key]" :value="formModelObj[key]" />
+        <ElCheckBox v-if="item.component === 'ElCheckBox'" :items="item.arrayValues" :attrs="item.attributes" @change="atChanged" :value="formModelObj[key]" />
+        <ElInputTextArea v-if="item.component === 'ElInputTextArea'" :attrs="item.attributes" v-model="formModelObj[key]" :value="formModelObj[key]" />
         <ElButton v-if="item.component === 'ElButton'" :attrs="item.attributes" @click="atClicked"/>
     </div>
   </form>
@@ -42,8 +43,8 @@ export default {
       }
     },
     showCustomer (customer) {
-      console.log(customer)
-      this.formModelObj.name = 'sff'
+      this.formModelObj = customer
+      console.log(this.formModelObj)
     }
   },
   props: ['formSpec', 'storeName']
