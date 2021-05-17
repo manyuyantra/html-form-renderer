@@ -7,7 +7,6 @@
         :value="item"
         v-bind="attrs"
         v-model="selectedValues"
-        :checked="checkValue(item)"
         @change="handleInput">
       {{ item }}
     </label>
@@ -40,6 +39,8 @@ export default {
     value () {
       if (this.value.length) {
         this.selectedValues = this.value
+      } else {
+        this.selectedValues = []
       }
     }
   },

@@ -4,7 +4,6 @@
   <FormTags :storeName="storeName" @click="showCustomer"/>
   <form id="dynamic-form">
     <div v-for="(item,key,index) in formSpec" :key="index">
-      {{formModelObj[key]}}
         <ElInputText v-if="item.component === 'ElInputText'" :attrs="item.attributes" v-model="formModelObj[key]" :value="formModelObj[key]" />
         <ElRadioBtn v-if="item.component === 'ElRadioBtn'" :items="item.arrayValues" :attrs="item.attributes" v-model="formModelObj[key]" :value="formModelObj[key]" />
         <ElDropdown v-if="item.component === 'ElDropdown'" :items="item.arrayValues" :attrs="item.attributes" v-model="formModelObj[key]" :value="formModelObj[key]" />
