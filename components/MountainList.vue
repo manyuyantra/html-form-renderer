@@ -7,6 +7,7 @@
         {{ mountain.title }}
       </li>
     </ul>
+    <button @click="$fetch">Refresh</button>
   </div>
 </template>
 
