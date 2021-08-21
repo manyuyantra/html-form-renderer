@@ -3,6 +3,7 @@
     <button @click="fetchSomething">Authenticate</button>
      <button @click="getUsers">Getuser</button>
         <button @click="logout">Logout</button>
+        <button @click="isAuthenticated">isAuthenticated</button>
         {{ token }} {{ msg }}
         {{ users }}
   </div>
@@ -19,7 +20,7 @@ export default {
   },
   methods: {
     async fetchSomething () {
-      const userName = 'gurujegan'
+      const userName = 'siva'
       const pass = 'Test@123'
       const encStr = 'Basic ' + btoa(userName + ':' + pass)
       console.log(encStr)
@@ -46,6 +47,16 @@ export default {
       const config = {
         method: 'get',
         url: 'http://localhost:9090/demo/api/logout',
+        headers: { 'x-auth-token': this.token }
+      }
+      const res = await this.$axios(config)
+      this.msg = res.data
+      this.users = []
+    },
+    async isAuthenticated () {
+      const config = {
+        method: 'get',
+        url: 'http://localhost:9090/demo/api/isAuthenticated',
         headers: { 'x-auth-token': this.token }
       }
       const res = await this.$axios(config)
