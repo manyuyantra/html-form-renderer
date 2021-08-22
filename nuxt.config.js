@@ -8,7 +8,11 @@ export default {
       { hid: 'description', name: 'description', content: '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'stylesheet',
+        href: 'https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css'
+      }
     ]
   },
 
@@ -39,11 +43,12 @@ export default {
     '@nuxtjs/pwa',
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
+    '@nuxtjs/auth-next'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: process.env.API_URL
+    baseURL: 'http://localhost:9090/demo/api'
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
@@ -58,5 +63,23 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+  },
+  auth: {
+    strategies: {
+      local: {
+        token: {
+          property: 'token',
+          global: true,
+        },
+        endpoints: {
+          login: { url: '/authenticate', method: 'post', propertyName: 'data.token' },
+          user: { url: 'me', method: 'get', propertyName: 'data' },
+          logout: { url: '/logout', method: 'get', propertyName: 'data' }
+        },
+        user: {
+          property: 'user' // here should be `false`, as you defined in user endpoint `propertyName`
+        }
+      }
+    }
   }
 }

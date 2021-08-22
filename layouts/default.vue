@@ -1,6 +1,6 @@
 <template>
   <div>
-    <NavBar />
+    <NavBar1 />
     <Nuxt />
     <Footer />
   </div>
@@ -62,3 +62,13 @@ html {
   background-color: #35495e;
 }
 </style>
+
+<script>
+import Navbar1 from '~/components/Navbar1'
+
+export default {
+  components: {
+    Navbar1
+  }
+}
+</script>

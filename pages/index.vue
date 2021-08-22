@@ -1,6 +1,7 @@
 <template>
-  <main>
-    <h1>Home page</h1>
-    <a href="https://nuxtjs.org">External Link to another page</a>
-  </main>
+  <section class="section">
+    <div class="container">
+      <h1 class="title">Nuxt Auth</h1>
+    </div>
+  </section>
 </template>
