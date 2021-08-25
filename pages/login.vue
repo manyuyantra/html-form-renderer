@@ -70,9 +70,9 @@ export default {
           headers: { Authorization: this.encodedCredentials }
         }).then((res) => {
           console.log(res)
-          const user = { username: 'testuser' }
-          this.$auth.setUser(user)
-          this.$auth.$storage.setUniversal('user', user, true)
+          // const user = { username: 'testuser' }
+          // this.$auth.setUser(user)
+          // this.$auth.$storage.setUniversal('user', user, true)
           // console.log(this.$auth.$storage.getUniversal('user'))
           this.$store.commit('setUserAuthenticated', true)
           this.$router.push('/profile')
