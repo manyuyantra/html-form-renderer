@@ -70,10 +70,12 @@ export default {
         token: {
           property: 'token',
           global: true,
+          name: 'X-Auth-Token',
+          type: null
         },
         endpoints: {
           login: { url: '/authenticate', method: 'post', propertyName: 'data.token' },
-          user: { url: '/users/1', method: 'get', propertyName: 'data' },
+        //  user: { url: '/users/15', method: 'get', propertyName: 'data' },
           logout: { url: '/logout', method: 'get', propertyName: 'data' }
         },
         user: {

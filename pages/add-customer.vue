@@ -47,8 +47,17 @@ export default {
       type: 'String',
       attributes: {
         id: 'customer-name',
-        name: 'name',
+        name: 'Customer',
         placeholder: 'Enter Your Name'
+      }
+    }
+    custFieldInfo.lname = {
+      component: 'ElInputText',
+      type: 'String',
+      attributes: {
+        id: 'customer-lname',
+        name: 'Last name',
+        placeholder: 'Enter Your last Name'
       }
     }
     custFieldInfo.email = {
