@@ -1,6 +1,6 @@
 <template>
     <div>
-        Hello Store {{ customers }}
+      <h5 class="parent">No of customers added: {{ customers.length }}</h5>
         <FormRenderer :formSpec="custFieldInfo" :storeName="storeName" />
     </div>
 </template>
@@ -24,22 +24,6 @@ export default {
     }
   },
   created () {
-    function Customer () {
-      this.id = ''
-      this.name = ''
-      this.email = ''
-      this.dob = ''
-      this.gender = ''
-      this.work = ''
-      this.mobNo = ''
-      this.panNo = ''
-      this.address1 = ''
-      this.address2 = ''
-      this.address3 = ''
-      this.pincode = ''
-      this.profession = []
-      this.jobDescription = ''
-    }
     const custFieldInfo = {}
 
     custFieldInfo.name = {
@@ -185,8 +169,16 @@ export default {
         type: 'reset'
       }
     }
-    this.objInfo = new Customer()
     this.custFieldInfo = custFieldInfo
   }
 }
 </script>
+
+<style scoped>
+.parent{
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+}
+</style>

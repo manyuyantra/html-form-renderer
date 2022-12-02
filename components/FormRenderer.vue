@@ -1,6 +1,6 @@
 <template>
 <div class="parent">
-    formModelObj {{ formModelObj }}
+    <!-- formModelObj {{ formModelObj }} -->
   <FormTags :storeName="storeName" @click="showCustomer"/>
   <form id="dynamic-form">
     <div v-for="(item,key,index) in formSpec" :key="index">
