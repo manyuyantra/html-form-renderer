@@ -1,26 +1,21 @@
 <template>
     <div>
-      <h5 class="parent">No of customers added: {{ customers.length }}</h5>
+      <h5 class="parent">No of customers added: {{ customers.length }}</h5><br>
         <FormRenderer :formSpec="custFieldInfo" :storeName="storeName" />
     </div>
 </template>
 
 <script>
 export default {
-  computed: {
-    customers () {
-      return this.$store.state.customer.list
-    }
-  },
   data () {
     return {
       customer: {},
       storeName: 'customer'
     }
   },
-  methods: {
-    atClicked (value) {
-      this.customer = value
+  computed: {
+    customers () {
+      return this.$store.state[this.storeName].list
     }
   },
   created () {
@@ -170,6 +165,11 @@ export default {
       }
     }
     this.custFieldInfo = custFieldInfo
+  },
+  methods: {
+    atClicked (value) {
+      this.customer = value
+    }
   }
 }
 </script>
